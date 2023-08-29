@@ -1,0 +1,90 @@
+﻿@model Recipe_Sharing_platform.Models.Recipe
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<style>
+    .details-container {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .details-header {
+        background-color:indianred;
+        color: white;
+        padding: 10px;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .details-header h1 {
+        margin: 0;
+    }
+
+    .details-list dt {
+        color:teal;
+        font-weight: bold;
+    }
+
+    .details-list dd {
+        margin-left: 0;
+        padding-left: 10px;
+    }
+
+    .edit-link {
+        color:teal;
+        text-decoration: none;
+    }
+
+    .back-link {
+        margin-top: 10px;
+        display: inline-block;
+        color: teal;
+        text-decoration: none;
+    }
+</style>
+
+<div class="details-container">
+    <div class="details-header">
+        <h1>Details</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="details-list">
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Id)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Id)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Title)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Title)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Ingredients)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Ingredients)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Instructions)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Instructions)
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index" class="back-link">Back to List</a> |
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "edit-link" })
+    </div>
+</div>

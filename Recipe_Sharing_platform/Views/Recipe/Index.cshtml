@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Recipe_Sharing_platform.Models.Recipe>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    body {
+        background-image:url('');
+      /*  background: url('https://c1.wallpaperflare.com/preview/491/742/348/italian-cuisine-eat-cooking-book-cover-fo */od.jpg');
+        background-size: cover;
+        font-family: 'Arial', sans-serif;
+       
+    }
+
+    .index-container {
+        background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */ */
+        padding-top: 50px;
+        padding-bottom:50px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .table th {
+       
+        background-color:black;
+        color: white;
+    }
+
+    .table td {
+       
+        background-color: #f0f0f0;
+    }
+
+    .action-links a {
+        color: darkgreen;
+        text-decoration: none;
+        margin-right: 10px;
+    }
+
+        .action-links a:hover {
+            text-decoration: underline;
+        }
+</style>
+
+<div class="index-container">
+    <h1>Index</h1>
+    <p>
+        <a asp-action="Create" class="action-links">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ingredients)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Instructions)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ingredients)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Instructions)
+                    </td>
+                    <td class="action-links">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
